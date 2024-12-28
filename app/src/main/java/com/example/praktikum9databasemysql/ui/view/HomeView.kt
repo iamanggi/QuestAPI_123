@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
@@ -35,6 +36,20 @@ object DestinasiHome: DestinasiNavigasi {
     override val titleRes = "Home Mhs"
 }
 
+
+//home screen menampilkan pesan loading
+@Composable
+fun OnLoading(
+    modifier: Modifier = Modifier
+){
+    Image(
+        modifier = modifier.size(200.dp),
+        painter = painterResource(R.drawable.loading_img),
+        contentDescription = stringResource(R.string.loading)
+    )
+}
+
+//home screen menampilkan pesan error dengan tombol coba lagi
 @Composable
 fun OnError(
     retryAction: () -> Unit,
