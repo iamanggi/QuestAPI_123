@@ -1,11 +1,15 @@
 package com.example.praktikum9databasemysql.ui.view
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material3.Card
@@ -24,6 +28,30 @@ import com.example.praktikum9databasemysql.ui.navigation.DestinasiNavigasi
 object DestinasiHome: DestinasiNavigasi {
     override val route = "home"
     override val titleRes = "Home Mhs"
+}
+
+@Composable
+fun MhsLayout(
+    mahasiswa: List<Mahasiswa>,
+    modifier: Modifier = Modifier,
+    onDetailClick: (Mahasiswa) -> Unit,
+    onDeleteClick: (Mahasiswa) -> Unit = {}
+){
+    LazyColumn(
+        modifier = modifier,
+        contentPadding = PaddingValues(16.dp),
+        verticalArrangement = Arrangement.spacedBy(16.dp)
+    ) {
+        items(mahasiswa){
+            mhs ->
+            MhsCard(
+                mahasiswa = mhs,
+                modifier = Modifier.fillMaxWidth()
+                    .clickable { onDetailClick(mhs) },
+                onDeleteClick = {onDeleteClick(mhs)}
+            )
+        }
+    }
 }
 
 @Composable
