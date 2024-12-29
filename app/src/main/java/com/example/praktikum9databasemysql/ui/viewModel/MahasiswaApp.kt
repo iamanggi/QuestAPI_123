@@ -1,7 +1,6 @@
 package com.example.praktikum9databasemysql
 
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
@@ -11,11 +10,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import com.example.praktikum9databasemysql.ui.navigation.PengelolaHalaman
-import com.example.praktikum9databasemysql.ui.viewModel.PenyediaViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MahasiswaApp(){
+fun MahasiswaApp(modifier: Modifier = Modifier){
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
     Scaffold(
         modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection)
