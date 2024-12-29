@@ -8,6 +8,12 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
+sealed class DetailUiState{
+    data class  Success(val mahasiswa: List<Mahasiswa>): DetailUiState()
+    object Error : DetailUiState()
+    object Loading : DetailUiState()
+}
+
 class DetailViewModel(private val mhs: MahasiswaRepository) : ViewModel() {
 
     private val _mahasiswa = MutableStateFlow<Mahasiswa?>(null)
