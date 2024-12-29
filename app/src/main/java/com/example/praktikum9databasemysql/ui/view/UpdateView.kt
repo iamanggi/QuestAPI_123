@@ -155,7 +155,7 @@ fun FormInput(
             label = { Text("Nim")},
             placeholder = { Text("Masukkan Nim") },
             modifier = Modifier.fillMaxWidth(),
-            enabled = enabled,
+            enabled = true,
             singleLine = true
         )
         Text("Jenis Kelamin", style = MaterialTheme.typography.bodyMedium)
