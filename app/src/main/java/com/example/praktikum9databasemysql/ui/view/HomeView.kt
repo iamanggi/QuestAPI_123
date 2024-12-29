@@ -46,7 +46,7 @@ import com.example.praktikum9databasemysql.ui.viewModel.PenyediaViewModel
 
 object DestinasiHome: DestinasiNavigasi {
     override val route = "home"
-    override val titleRes = "Home Mhs"
+    override val titleRes = "Home Mahasiswa"
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -136,7 +136,7 @@ fun OnLoading(
 ){
     Image(
         modifier = modifier.size(200.dp),
-        painter = painterResource(R.drawable.loading),
+        painter = painterResource(R.drawable.loading_img),
         contentDescription = stringResource(R.string.loading)
     )
 }
