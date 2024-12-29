@@ -12,11 +12,13 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -35,6 +37,7 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.praktikum9databasemysql.R
 import com.example.praktikum9databasemysql.model.Mahasiswa
@@ -59,7 +62,7 @@ fun HomeScreen(
 ){
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
     Scaffold(
-        modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
+        modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection).padding(horizontal = 10.dp),
         topBar = {
             CostumeTopAppBar(
                 title = DestinasiHome.titleRes,
@@ -74,7 +77,7 @@ fun HomeScreen(
             FloatingActionButton(
                 onClick = navigateToItemEntry,
                 shape = MaterialTheme.shapes.medium,
-                modifier = Modifier.padding(18.dp)
+                modifier = Modifier.padding(14.dp)
             ) {
                 Icon(imageVector = Icons.Default.Add,
                     contentDescription = "Add Mahasiswa")
@@ -156,8 +159,22 @@ fun OnError(
             contentDescription = "")
         Text(text = stringResource(R.string.loading_failed),
             modifier = Modifier.padding(16.dp))
-        Button(onClick = retryAction) {
-            Text(stringResource(R.string.retry))
+        Button(onClick = retryAction, modifier = Modifier.padding(horizontal = 60.dp)) {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.Center,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Icon(
+                    imageVector = Icons.Filled.Refresh,
+                    contentDescription = "Refresh Icon",
+                    modifier = Modifier.size(20.dp)
+                )
+                Spacer(modifier = Modifier.width(8.dp))
+                Text(text = stringResource(R.string.retry),
+                    fontSize = 16.sp)
+
+            }
         }
     }
 }
