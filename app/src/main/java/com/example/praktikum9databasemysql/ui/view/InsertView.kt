@@ -181,7 +181,7 @@ fun FormInput(
         Row() {
             kelas.forEach { kelas ->
                 Row(
-                    verticalAlignment = androidx.compose.ui.Alignment.CenterVertically,
+                    verticalAlignment = Alignment.CenterVertically,
                     modifier = Modifier.padding(end = 16.dp)
                 ) {
                     androidx.compose.material3.RadioButton(
